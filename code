@@ -1,0 +1,14 @@
+import pandas as pd
+
+fundos = pd.DataFrame(pd.read_csv('inf_diario_fi_202101.csv', delimiter = ';'))
+
+cnpjs = []
+resultado = pd.DataFrame()
+
+while True:
+    x = input("Digite o CNPJ desejado: ")
+    resultado = resultado.append(fundos[fundos['CNPJ_FUNDO'] == x])
+    r = input('Outro S ou N: ')
+    if r != "S":
+        print(resultado)
+        break
